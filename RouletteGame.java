@@ -11,7 +11,7 @@ public class RouletteGame
        double amount;
        int choice, win = 0, lose = 0, spin = 0;
        int number;
-       int rouletteNum;
+       int rouletteNo;
        int result;
        char response = 'y';
        double total = 500;
@@ -29,7 +29,7 @@ public class RouletteGame
                choice = keyboard.nextInt();
            }
            number = 0;
-           if (choice == 2)  
+           if (choice == 2)
            {
                while (number < 1 || number > 36)
                {
@@ -37,20 +37,20 @@ public class RouletteGame
                    number = keyboard.nextInt();
                }
            }
-           rouletteNum = generator.nextInt(37);
+           rouletteNo = generator.nextInt(37);
            spin++;
-           System.out.println("Roulette number: " + rouletteNum);
+           System.out.println("Roulette number: " + rouletteNo);
 
            if (choice == 2)
            {
-               if (rouletteNum == number)
+               if (rouletteNo == number)
                    result = 35;
                else
                    result = 0;
            }
            else
            {
-               if (rouletteNum == 0 || rouletteNum % 2 != choice)
+               if (rouletteNo == 0 || rouletteNo % 2 != choice)
                    result = 0;
                else
                    result = 1;
@@ -65,7 +65,7 @@ public class RouletteGame
                        (result + 1) * amount);
                total = (result + 1) * amount + total;
                win ++;
-               resultArr[rouletteNum]++;
+               resultArr[rouletteNo]++;
 
            }
            else
@@ -75,7 +75,7 @@ public class RouletteGame
                        (result + 1) * amount);
                total = total - (result + 1) * (amount);
                lose ++;
-               resultArr[rouletteNum]++;
+               resultArr[rouletteNo]++;
 
                if (total <= 0) {
             	   break;
